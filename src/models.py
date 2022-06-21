@@ -19,6 +19,12 @@ class User(Base):
     fecha_nacimiento = Column(String(120), unique=False, nullable=False)
     imagen_perfil = Column(String(120), unique=False, nullable=False)
 
+class Follower(Base):
+    __tablename__ = 'follower'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
+ 
+
 class Posts(Base):
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
